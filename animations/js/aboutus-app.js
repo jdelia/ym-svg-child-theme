@@ -66,8 +66,6 @@
 
                 }, 1);
 
-            console.log('running');
-
             // Create the Scene and trigger when visible
             var scene = new ScrollMagic.Scene({
                     triggerElement: '#svg-animated-icons-container',
