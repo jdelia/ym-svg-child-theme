@@ -1,4 +1,4 @@
-// Adds scroll animation to SVG sprinkles on home page.
+// Adds scroll animation to AMS Overview Page
 (function($) {
     'use strict'
     $(window).load(function() {
@@ -50,55 +50,87 @@
                 ease: Power4.easeInOut
 
             })
-            // Create Animation for Icon-1
-            //
-            //
+            // Create Animations
+            // botany
+            tl1.to('#botany #stem', 2, {
 
-            // paper-airplane
-            tl1.to('#paper-airplane #plane, #paper-airplane #air', 1, {
-                    x: -5,
-                    y: 5
-                }, 1).to('#paper-airplane #plane', 2, {
-                    x: 15,
-                    y: -15
-                }, 2)
-                .to('#paper-airplane #air', 1, {
-                    autoAlpha: 1
-                }, 3)
+                    y: -6
 
-            // flag
-            tl2.fromTo('#flag #flagpole', 2, {
-                y: 0
-
-            }, {
-                y: -10
-
-            }, 1).to('#flag #cloud', 2, {
-                y: 10
-
-            }, 1)
+                }, 1).to('#botany #right_leaf', 2, {
+                    y: -6
 
 
-            /* flight */
-            // tl2.to('#flight #bow', 2, {
-            //     transformOrigin: '50% 50%',
-            //     rotation: -15
-            //
-            // }, 1).to('#flight #body', 2, {
-            //     transformOrigin: '20% 100%',
-            //     rotation: 10
-            //
-            // }, 1)
-            /* robot */
-            tl3.to('#robot #power-group', 2, {
-                y: -10
+                }, 1).to('#botany #left-leaf', 2, {
+                    y: -6
 
-            }, 1)
+                }, 1)
+
+
+                .to('#botany #right_leaf', 2, {
+                    scale: 1.4,
+                    x: 0
+                }, 1).to('#botany #left-leaf', 2, {
+                    scale: 1.4,
+                    x: -5
+                }, 1)
+
+
+                .to('#botany #lower-bubble', 2, {
+                    x: 0,
+                    y: -12,
+                    scale: .8
+
+                }, 1).to('#botany #upper-bubble', 2, {
+                    x: 2,
+                    y: 12,
+                    scale: 1.4
+
+
+                }, 1).to('#botany #right-bubble', 2, {
+                    x: -2,
+                    y: -5,
+                    scale: 1.2
+
+                }, 1)
+
+
+            // cupcake
+            tl2.to('#cupcake #cherry', 2, {
+
+                y: 12,
+                transformOrigin: "center",
+                rotation: -40,
+
+            }, 1).to('#cupcake #new-frosting', 2, {
+                autoAlpha: 1
+
+
+            }, 2).to('#cupcake #splash', 2, {
+                autoAlpha: 1
+            }, 2)
+
+
+            tl3.set('#plug #panel', {
+                fill: '#fff'
+            })
+
+            // plug
+            tl3.to('#plug #top-plug', 2, {
+                x: -7.9,
+                y: 7.9
+
+
+            }, 1).to('#plug #lower-plug', 2, {
+                x: 7.9,
+                y: -7.9
+            }, 2).to('#plug #click', 2, {
+                autoAlpha: 1
+            }, 2)
 
             // Create the Scene and trigger when visible
             //
             var scene1 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#paper-airplane',
+                    triggerElement: '.card-container svg#botany',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -113,7 +145,7 @@
                 .addTo(controller)
 
             var scene2 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#flag',
+                    triggerElement: '.card-container  svg#cupcake',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -128,7 +160,7 @@
                 .addTo(controller)
 
             var scene3 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#robot',
+                    triggerElement: '.card-container svg#plug',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'

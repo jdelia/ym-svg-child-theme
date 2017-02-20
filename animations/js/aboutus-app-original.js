@@ -1,5 +1,4 @@
 // Adds scroll animation to SVG sprinkles on home page.
-
 (function($) {
     "use strict";
     $(window).load(function() {
@@ -24,51 +23,71 @@
             100);
 
         function runAnimation() {
+            var iconContainer = $('.svg-animated-icon-container');
+            var iconContainerLink = $('.svg-animated-icon-container a');
 
-            var sprinkle1 = '.sprinkle-1';
-            var sprinkle2 = '.sprinkle-2';
-            var sprinkle3 = '.sprinkle-3';
             // Init ScrollMagic Controller
             var controller = new ScrollMagic.Controller();
+
             var tl = new TimelineMax({
-                repeat: -1
+                repeat: 2,
+                smoothChildTiming: true,
+                yoyo: true,
+                paused: true,
+                ease: Power4.easeInOut
+
             });
-            // Create Animation
-            tl.to(sprinkle1, 10, {
-                    rotation: 360,
-                    transformOrigin: "50% 40%",
-                    ease: Linear.easeNone
-                })
-                .to(sprinkle2, 10, {
-                    rotation: -360,
-                    transformOrigin: "30% 30%",
-                    ease: Linear.easeNone
+            // Create Animation for Icon-1
+
+            tl.fromTo('#flagpole', 2, {
+                    y: 0
+
+                }, {
+                    y: -10
+
                 }, 1)
-                .to(sprinkle3, 10, {
-                    rotation: 360,
-                    transformOrigin: "40% 40%",
-                    ease: Linear.easeNone
-                }, 2);
+                .to('#cloud', 2, {
+                    y: 10
+
+                }, 1)
+                /* kite */
+                .to('#bow', 2, {
+                    transformOrigin: '50% 50%',
+                    rotation: -15
+
+                }, 1)
+                .to('#body', 2, {
+                    transformOrigin: '20% 100%',
+                    rotation: 10
+
+                }, 1)
+                /* robot */
+                .to('#power-group', 2, {
+                    y: -10
+
+                }, 1);
 
             // Create the Scene and trigger when visible
             var scene = new ScrollMagic.Scene({
-                    triggerElement: '#scene',
-                    triggerHook: 1,
-                    // offset: 0
-                    duration: '98%'
-                    // offset: '100%'
+                    triggerElement: '#svg-animated-icons-container',
+                    triggerHook: '.2',
+                    offset: '-200',
+                    duration: '90%'
+
                 })
 
                 .setTween(tl)
-
+                .on("start", function(event) {
+                    tl.play();
+                })
                 /* DEBUG this is for debugging only - comment out on production */
-                // add indicators (requires plugin)
-                // .addIndicators({
-                //     name: "loop"
-                // })
+                .addIndicators({
+                    name: "loop"
+                }) // add indicators (requires plugin)
                 /* End Debug -----------------------------------------------------------------*/
 
                 .addTo(controller);
         }
+
     });
 })(jQuery);

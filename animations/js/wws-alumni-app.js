@@ -1,4 +1,4 @@
-// Adds scroll animation to SVG sprinkles on home page.
+// Adds scroll animation to WWS Chambers of Commerce Page
 (function($) {
     'use strict'
     $(window).load(function() {
@@ -43,6 +43,7 @@
                 ease: Power4.easeInOut
 
             })
+
             var tl3 = new TimelineMax({
                 repeat: 0,
                 smoothChildTiming: true,
@@ -50,55 +51,80 @@
                 ease: Power4.easeInOut
 
             })
-            // Create Animation for Icon-1
-            //
-            //
 
-            // paper-airplane
-            tl1.to('#paper-airplane #plane, #paper-airplane #air', 1, {
-                    x: -5,
-                    y: 5
-                }, 1).to('#paper-airplane #plane', 2, {
-                    x: 15,
-                    y: -15
+
+            // Create Animations
+            // liftweight
+            tl1.to('#liftweight #weights', 2, {
+                y: -15
+            }, 1)
+            // rocketlaunch
+            tl2.to('#rocketlaunch #ship', .1, {
+                    rotation: 3,
+                    transformOrigin: '50% 50%',
+                    ease: Quad.easeInOut
+                }, 1)
+                .to('#rocketlaunch #ship', .1, {
+                    repeat: 2,
+                    rotation: -3,
+                    transformOrigin: '50% 50%',
+                    yoyo: true,
+                    delay: .1,
+                    ease: Quad.easeInOut
+                }, 1)
+                .to('#rocketlaunch #ship', .1, {
+                    rotation: 0,
+                    transformOrigin: '50% 50%',
+                    delay: .1 * 4
+                }, 1)
+                .to('#rocketlaunch #ship', 3.8, {
+                    x: 12,
+                    y: -12,
+                    delay: .5
                 }, 2)
-                .to('#paper-airplane #air', 1, {
+
+
+                .to('#rocketlaunch #panel_1_', 3.8, {
+                    // x: 12,
+                    // y: -12,
+                    autoAlpha: 0
+
+                }, 2).to('#rocketlaunch #turbo', 3.8, {
+                    // x: 12,
+                    // y: -12,
                     autoAlpha: 1
-                }, 3)
 
-            // flag
-            tl2.fromTo('#flag #flagpole', 2, {
-                y: 0
+                }, 2)
 
-            }, {
-                y: -10
+            tl3.fromTo('#highfives #left-hand', 2, {
+                    rotation: 0,
+                    transformOrigin: "100% 100%"
 
-            }, 1).to('#flag #cloud', 2, {
-                y: 10
+                }, {
+                    rotation: 20,
+                    y: 10,
+                    transformOrigin: "100% 100%"
 
-            }, 1)
+                }, 1).fromTo('#highfives #right-hand', 2, {
+                    rotation: 0,
+                    transformOrigin: "100% 100%"
 
+                }, {
+                    rotation: -20,
+                    y: -10,
+                    transformOrigin: "100% 100%"
 
-            /* flight */
-            // tl2.to('#flight #bow', 2, {
-            //     transformOrigin: '50% 50%',
-            //     rotation: -15
-            //
-            // }, 1).to('#flight #body', 2, {
-            //     transformOrigin: '20% 100%',
-            //     rotation: 10
-            //
-            // }, 1)
-            /* robot */
-            tl3.to('#robot #power-group', 2, {
-                y: -10
+                }, 1)
+                .to('#highfives #noise', 0, {
+                    autoAlpha: 1
 
-            }, 1)
+                }, 2)
+
 
             // Create the Scene and trigger when visible
             //
             var scene1 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#paper-airplane',
+                    triggerElement: '.card-container svg#liftweight',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -113,7 +139,7 @@
                 .addTo(controller)
 
             var scene2 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#flag',
+                    triggerElement: '.card-container  svg#rocketlaunch',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -126,9 +152,8 @@
                 }) // add indicators (requires plugin)
                 /* End Debug -----------------------------------------------------------------*/
                 .addTo(controller)
-
             var scene3 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#robot',
+                    triggerElement: '.card-container  svg#highfives',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -141,6 +166,7 @@
                 }) // add indicators (requires plugin)
                 /* End Debug -----------------------------------------------------------------*/
                 .addTo(controller)
+
         }
 
     })

@@ -1,4 +1,4 @@
-// Adds scroll animation to SVG sprinkles on home page.
+// Adds scroll animation to AMS Social Page
 (function($) {
     'use strict'
     $(window).load(function() {
@@ -50,12 +50,58 @@
                 ease: Power4.easeInOut
 
             })
-            // Create Animation for Icon-1
-            //
-            //
+            // Create Animations
+            // desk-bell
+            tl1.to('#desk-bell #whole-finger', 2, {
+
+                y: 10
+
+            }, 1).to('#desk-bell #ding', 2, {
+                y: 5
+
+
+            }, 2).to('#desk-bell #noise', 2, {
+                autoAlpha: 1
+
+            }, 2)
+
+
+
+
+
+            // diamond
+            tl2.to('#diamond #diamond-body', 2, {
+                y: -12
+            }, 1).to('#diamond #shine', 2, {
+                y: -12
+            }, 1).to('#diamond #shine', 2, {
+                scale: 1.2,
+                x: -7
+            }, 2).to('#diamond #shine #one', .1, {
+                autoAlpha: 0
+            }, 3).to('#diamond #shine #one', .3, {
+                autoAlpha: 1
+            }, 4).to('#diamond #shine #two', .1, {
+                autoAlpha: 0
+            }, 4).to('#diamond #shine #two', .3, {
+                autoAlpha: 1
+            }, 5).to('#diamond #shine #three', .1, {
+                autoAlpha: 0
+            }, 3).to('#diamond #shine #three', .3, {
+                autoAlpha: 1
+            }, 4).to('#diamond #shine #four', .1, {
+                autoAlpha: 0
+            }, 4).to('#diamond #shine #four', .3, {
+                autoAlpha: 1
+            }, 5).to('#diamond #shine #five', .1, {
+                autoAlpha: 0
+            }, 3).to('#diamond #shine #five', .3, {
+                autoAlpha: 1
+            }, 4)
+
 
             // paper-airplane
-            tl1.to('#paper-airplane #plane, #paper-airplane #air', 1, {
+            tl3.to('#paper-airplane #plane, #paper-airplane #air', 1, {
                     x: -5,
                     y: 5
                 }, 1).to('#paper-airplane #plane', 2, {
@@ -66,39 +112,10 @@
                     autoAlpha: 1
                 }, 3)
 
-            // flag
-            tl2.fromTo('#flag #flagpole', 2, {
-                y: 0
-
-            }, {
-                y: -10
-
-            }, 1).to('#flag #cloud', 2, {
-                y: 10
-
-            }, 1)
-
-
-            /* flight */
-            // tl2.to('#flight #bow', 2, {
-            //     transformOrigin: '50% 50%',
-            //     rotation: -15
-            //
-            // }, 1).to('#flight #body', 2, {
-            //     transformOrigin: '20% 100%',
-            //     rotation: 10
-            //
-            // }, 1)
-            /* robot */
-            tl3.to('#robot #power-group', 2, {
-                y: -10
-
-            }, 1)
-
             // Create the Scene and trigger when visible
             //
             var scene1 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#paper-airplane',
+                    triggerElement: '.card-container svg#desk-bell',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -113,7 +130,7 @@
                 .addTo(controller)
 
             var scene2 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#flag',
+                    triggerElement: '.card-container  svg#diamond',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -128,7 +145,7 @@
                 .addTo(controller)
 
             var scene3 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#robot',
+                    triggerElement: '.card-container svg#paper-airplane',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'

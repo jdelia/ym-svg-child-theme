@@ -1,13 +1,8 @@
-
-
-
-
-body { background: #fff; -webkit-font-smoothing: antialiased;
+/* For testing only */
+.ScrollSceneIndicators {
+	z-index: 9999999 !important;
 }
-.ScrollSceneIndicators { z-index: 9999999 !important;
-}
-
-
+/* Home Page Styles */
 #main {
 	display: block;
 	height: 500px;
@@ -15,83 +10,169 @@ body { background: #fff; -webkit-font-smoothing: antialiased;
 	padding: 40px 0;
 	overflow: hidden;
 }
+
 #scene {
 	display: block;
-  height: 300px;
 	width: 100%;
+	min-height: 300px;
 	padding: 40px 0;
 }
-
-.sprinkle-1 {
-	transform: rotate(45);
-
-}
-
-.svg-animated-icons-container {
-	width: 100%;
-	overflow: hidden;
-	clear:both;
-}
-
-.svg-animated-icon-container {
-	display: inline-block;
-  margin: 20px;
-  text-align: left;
-  width: 20%;
-  border: 0;
-	float: left;
-}
-
-.svg-animated-icon-container svg {
- 	transition: .5s;
-}
-.svg-animated-icon-container:hover svg {
-   transform:scale(1.1);
-}
-
-
+#main .icon-container,
 .careers-container,
 .learning-container,
 .media-container,
 .membership-container {
 	display: inline-block;
-  margin: 20px;
-  text-align: left;
-  width: 20%;
-  border: 0;
-	float: left;
+	margin: 20px;
+	text-align: left;
+	width: 20%;
+	border: 0;
+	/*float: left;*/
 	padding: 10px;
 }
+/* CSS for Scrolling Animations - all other pages */
+.svg-animated-icons-container {
+	width: 100%;
+	overflow: hidden;
+	clear: both;
+}
 
+.svg-animated-icons-container svg {
+	overflow: visible;
+}
 
-
-
-
-.piggy-bank-container {
+.svg-animated-icons-container .card-container {
 	display: inline-block;
-  margin: 20px;
-  text-align: left;
+	margin: 10px;
+	text-align: left;
+	border: 0;
+	float: left;
   width: 30%;
-  border: 0;
-	float: right;
+	height: 200px;
+}
+.svg-animated-icons-container .card-container figure {
+	height: 200px;
+	width: 200px;
+	margin: auto;
+	padding: 50px;
+
+}
+.svg-animated-icons-container .card-container svg {
+
+	transition: 0.5s;
+
 }
 
-#piggy-bank-container-1:hover #big-coin {
-  transform: translate(0, 200px);
-  animation: dropin .5s ease-in;
+.svg-animated-icons-container .card-container:hover svg {
+	transform: scale(1.2);
+}
+#scene {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
 }
 
-@keyframes dropin {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(15px, -5px);
-  }
-  80% {
-    transform: translate(28px, 150px);
-  }
-  0 100% {
-    transform: translate(28px, 200px);
-  }
+#scene .hexes-tablet,
+#scene .hexes-mobile,
+#scene .sprinkles-tablet,
+#scene .sprinkles-mobile {
+	opacity: 0;
+	width: 100%;
+	max-width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#scene .hexes-desktop,
+#scene .sprinkles-desktop {
+	opacity: 1;
+	width: 100%;
+	max-width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+@media only screen and (max-width: 767px) {
+	.svg-animated-icons-container .card-container {
+		display: block;
+		width: 100%;
+	}
+	.svg-animated-icons-container .card-container svg {
+		display: block;
+		margin: auto;
+		max-width: 300px;
+	}
+	#main {
+		height: auto;
+	}
+	#main .icon-container {
+		width: 300px;
+	  text-align: center;
+		display: block;
+		float: none;
+		padding: 0 5%;
+	}
+
+
+	#scene .sprinkles-desktop {
+		opacity: 0;
+	}
+
+	#scene .sprinkles-tablet {
+		opacity: 0;
+	}
+	#scene .sprinkles-mobile {
+		opacity: 1;
+	}
+
+
+		#scene .hexes-desktop {
+			opacity: 0;
+		}
+
+		#scene .hexes-tablet {
+			opacity: 0;
+		}
+		#scene .hexes-mobile {
+			opacity: 1;
+		}
+}
+
+@media only screen and (min-width: 768px ) and (max-width: 1024px) {
+
+  #main {
+		height: auto;
+	}
+	#main .icon-container {
+		width: 300px;
+
+		display: block;
+		text-align: center;
+		float: none;
+		padding: 0 5%;
+		}
+
+	#scene .sprinkles-desktop {
+			opacity: 0;
+	}
+	#scene .sprinkles-tablet {
+			opacity: 1;
+	}
+	#scene .sprinkles-mobile {
+			opacity: 0;
+	}
+
+
+	#scene .hexes-desktop {
+			opacity: 0;
+	}
+	#scene .hexes-tablet {
+			opacity: 1;
+	}
+	#scene .hexes-mobile {
+			opacity: 0;
+	}
 }

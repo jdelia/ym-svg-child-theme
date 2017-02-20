@@ -1,4 +1,4 @@
-// Adds scroll animation to SVG sprinkles on home page.
+// Adds scroll animation to Careers Overview Page
 (function($) {
     'use strict'
     $(window).load(function() {
@@ -44,61 +44,68 @@
 
             })
             var tl3 = new TimelineMax({
-                repeat: 0,
+                repeat: 2,
                 smoothChildTiming: true,
-                yoyo: true,
+                yoyo: false,
                 ease: Power4.easeInOut
 
             })
-            // Create Animation for Icon-1
-            //
-            //
+            // Create Animations
+            // funnel
+            tl1.to('#funnel #left-drip', 2, {
+                y: 19
 
-            // paper-airplane
-            tl1.to('#paper-airplane #plane, #paper-airplane #air', 1, {
-                    x: -5,
-                    y: 5
-                }, 1).to('#paper-airplane #plane', 2, {
-                    x: 15,
-                    y: -15
-                }, 2)
-                .to('#paper-airplane #air', 1, {
-                    autoAlpha: 1
-                }, 3)
 
-            // flag
-            tl2.fromTo('#flag #flagpole', 2, {
-                y: 0
 
-            }, {
-                y: -10
+            }, 1).to('#funnel #right-drip', 2, {
+                y: 6
 
-            }, 1).to('#flag #cloud', 2, {
-                y: 10
+
+
+            }, 1).to('#funnel #center-drip', 2, {
+
+                y: 50
+
 
             }, 1)
 
 
-            /* flight */
-            // tl2.to('#flight #bow', 2, {
-            //     transformOrigin: '50% 50%',
-            //     rotation: -15
-            //
-            // }, 1).to('#flight #body', 2, {
-            //     transformOrigin: '20% 100%',
-            //     rotation: 10
-            //
-            // }, 1)
-            /* robot */
-            tl3.to('#robot #power-group', 2, {
-                y: -10
+            // kite
+            tl2.to('#kite #body', 2, {
+                x: -2,
+                y: -12
 
-            }, 1)
+            }, 1).to('#kite #body', 2, {
+                transformOrigin: '40% 100%',
+                rotation: 10
+
+            }, 2).to('#kite #body', 1, {
+                transformOrigin: '40% 100%',
+                rotation: -10
+
+            }, 3).to('#kite #body', 1, {
+                transformOrigin: '40% 100%',
+                rotation: 0
+
+            }, 4)
+
+
+            // piggy-bank
+            tl3.to('#piggy-bank #big-coin', .6, {
+                x: 5,
+                y: -5
+            }, 1).to('#piggy-bank #big-coin', 3.4, {
+                x: 8,
+                y: 50
+            }, 2)
+
+
+
 
             // Create the Scene and trigger when visible
             //
             var scene1 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#paper-airplane',
+                    triggerElement: '.card-container svg#funnel',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -113,7 +120,7 @@
                 .addTo(controller)
 
             var scene2 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#flag',
+                    triggerElement: '.card-container  svg#kite',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -128,12 +135,20 @@
                 .addTo(controller)
 
             var scene3 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#robot',
+                    triggerElement: '.card-container svg#piggy-bank',
                     triggerHook: .4,
                     offset: 0,
+                    reverse: true,
                     duration: '20%'
                 })
+                // .on("end", function(e) {
+                //     tl3.reverse();
+                // })
+                // .on("start", function(e) {
+                //     tl3.play();
+                // })
                 .setTween(tl3)
+
 
                 /* DEBUG this is for debugging only - comment out on production */
                 .addIndicators({

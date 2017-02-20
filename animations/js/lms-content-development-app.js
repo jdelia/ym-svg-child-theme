@@ -1,4 +1,4 @@
-// Adds scroll animation to SVG sprinkles on home page.
+// Adds scroll animation to LMS Content Development Page
 (function($) {
     'use strict'
     $(window).load(function() {
@@ -50,55 +50,53 @@
                 ease: Power4.easeInOut
 
             })
-            // Create Animation for Icon-1
-            //
-            //
+            // Create Animations
+            // engage
+            tl1.to('#engage #girl', 2, {
+                y: 14
 
-            // paper-airplane
-            tl1.to('#paper-airplane #plane, #paper-airplane #air', 1, {
-                    x: -5,
-                    y: 5
-                }, 1).to('#paper-airplane #plane', 2, {
-                    x: 15,
-                    y: -15
-                }, 2)
-                .to('#paper-airplane #air', 1, {
-                    autoAlpha: 1
-                }, 3)
-
-            // flag
-            tl2.fromTo('#flag #flagpole', 2, {
-                y: 0
-
-            }, {
-                y: -10
-
-            }, 1).to('#flag #cloud', 2, {
-                y: 10
 
             }, 1)
 
 
-            /* flight */
-            // tl2.to('#flight #bow', 2, {
-            //     transformOrigin: '50% 50%',
-            //     rotation: -15
-            //
-            // }, 1).to('#flight #body', 2, {
-            //     transformOrigin: '20% 100%',
-            //     rotation: 10
-            //
-            // }, 1)
-            /* robot */
-            tl3.to('#robot #power-group', 2, {
-                y: -10
+            // educationallearning
+            tl2.to('#educationallearning #cap', 2, {
 
-            }, 1)
+                y: 12
+
+            }, 1).to('#educationallearning #tassel', 2, {
+                y: 12
+
+
+            }, 1).to('#educationallearning #tassel', 1, {
+                transformOrigin: "50% 0%",
+                rotation: 8,
+                repeat: 3,
+                yoyo: true
+
+            }, 2).to('#educationallearning #tassel', 1, {
+                transformOrigin: "50% 0%",
+                rotation: -8,
+                repeat: 3,
+                yoyo: true
+
+            }, 2)
+
+
+            // contentlife
+            tl3.to('#contentlife #wolf', .3, {
+                autoAlpha: 1
+
+            }, 1).to('#contentlife #dolphin', 2, {
+                autoAlpha: 1
+            }, 2).to('#contentlife #wolf', 2, {
+                autoAlpha: 0
+            }, 2)
 
             // Create the Scene and trigger when visible
             //
             var scene1 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#paper-airplane',
+                    triggerElement: '.card-container svg#engage',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -113,7 +111,7 @@
                 .addTo(controller)
 
             var scene2 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#flag',
+                    triggerElement: '.card-container  svg#educationallearning',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
@@ -128,7 +126,7 @@
                 .addTo(controller)
 
             var scene3 = new ScrollMagic.Scene({
-                    triggerElement: '.card-container svg#robot',
+                    triggerElement: '.card-container svg#contentlife',
                     triggerHook: .4,
                     offset: 0,
                     duration: '20%'
