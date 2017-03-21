@@ -106,9 +106,9 @@
                 .setTween(tl1)
 
                 /* DEBUG this is for debugging only - comment out on production */
-                .addIndicators({
-                    name: 'loop'
-                }) // add indicators (requires plugin)
+                // .addIndicators({
+                //     name: 'loop'
+                // }) // add indicators (requires plugin)
                 /* End Debug -----------------------------------------------------------------*/
                 .addTo(controller)
 
@@ -121,9 +121,9 @@
                 .setTween(tl2)
 
                 /* DEBUG this is for debugging only - comment out on production */
-                .addIndicators({
-                    name: 'loop'
-                }) // add indicators (requires plugin)
+                // .addIndicators({
+                //     name: 'loop'
+                // }) // add indicators (requires plugin)
                 /* End Debug -----------------------------------------------------------------*/
                 .addTo(controller)
 
@@ -136,9 +136,9 @@
                 .setTween(tl3)
 
                 /* DEBUG this is for debugging only - comment out on production */
-                .addIndicators({
-                    name: 'loop'
-                }) // add indicators (requires plugin)
+                // .addIndicators({
+                //     name: 'loop'
+                // }) // add indicators (requires plugin)
                 /* End Debug -----------------------------------------------------------------*/
                 .addTo(controller)
         }

@@ -51,9 +51,9 @@ function genesis_sample_google_fonts() {
 	/* For svg animations */
 	wp_enqueue_script( 'tweenmax', '//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array( 'tweenmax' ), false, true );
-	wp_enqueue_script( 'scrollmagic-animation', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js', array( 'scrollmagic' ), false, true );
+	wp_enqueue_script( 'scrollmagic-animation', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js', array( 'tweenmax','scrollmagic' ), false, true );
 	// debug only
-	wp_enqueue_script( 'scrollmagicdebug', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', array( 'tweenmax', 'scrollmagic' ), false, true );
+	//wp_enqueue_script( 'scrollmagicdebug', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', array( 'tweenmax', 'scrollmagic' ), false, true );
 
 	wp_enqueue_script( 'sprinkles-app', CHILD_THEME_URI  . '/animations/js/sprinkles-app.js', array( 'tweenmax', 'scrollmagic', 'scrollmagic-animation', 'scrollmagicdebug' ), CHILD_THEME_VERSION, true );
 	wp_enqueue_script( 'hexes-app', CHILD_THEME_URI  . '/animations/js/hexes-app.js', array( 'tweenmax', 'scrollmagic', 'scrollmagic-animation', 'scrollmagicdebug' ), CHILD_THEME_VERSION, true );
@@ -62,14 +62,17 @@ function genesis_sample_google_fonts() {
 		wp_enqueue_script( 'app-hover', CHILD_THEME_URI  . '/animations/js/home-app-hover.js', array( 'tweenmax' ), CHILD_THEME_VERSION, true );
 	}
 	if ( is_page( 'about-us' ) ) {
-		wp_enqueue_script( 'aboutus-app', CHILD_THEME_URI  . '/animations/js/aboutus-app.js', array( 'tweenmax', 'scrollmagic', 'scrollmagic-animation', 'scrollmagicdebug' ), CHILD_THEME_VERSION, true );
+		wp_enqueue_script( 'aboutus-app', CHILD_THEME_URI  . '/animations/js/aboutus-app.js', array( 'tweenmax', 'scrollmagic', 'scrollmagic-animation' ), CHILD_THEME_VERSION, true );
 	}
-	if ( is_page( 'lms-overview' ) ) {
-		wp_enqueue_script( 'lms-overview-app', CHILD_THEME_URI  . '/animations/js/lms-overview-app.js', array( 'tweenmax', 'scrollmagic', 'scrollmagic-animation', 'scrollmagicdebug' ), CHILD_THEME_VERSION, true );
-	}
-	if ( is_page( 'lms-content-development' ) ) {
-		wp_enqueue_script( 'lms-content-development-app', CHILD_THEME_URI  . '/animations/js/lms-content-development-app.js', array( 'tweenmax', 'scrollmagic', 'scrollmagic-animation', 'scrollmagicdebug' ), CHILD_THEME_VERSION, true );
-	}
+	// if ( is_page( 'lms-overview' ) ) {
+	// 	wp_enqueue_script( 'lms-overview-app', CHILD_THEME_URI  . '/animations/js/lms-overview-app.js', array( 'tweenmax', 'scrollmagic', 'scrollmagic-animation', 'scrollmagicdebug' ), CHILD_THEME_VERSION, true );
+	// }
+	// if ( is_page( 'lms-content-development' ) ) {
+	// 	wp_enqueue_script( 'lms-content-development-app', CHILD_THEME_URI  . '/animations/js/lms-content-development-app.js', array( 'tweenmax', 'scrollmagic', 'scrollmagic-animation', 'scrollmagicdebug' ), CHILD_THEME_VERSION, true );
+	// }
+	//
+	//wp_enqueue_script( 'lms-app', CHILD_THEME_URI  . '/animations/js/lms-app.js', array( 'tweenmax', 'scrollmagic', 'scrollmagic-animation', 'scrollmagicdebug' ), CHILD_THEME_VERSION, true );
+
 	if ( is_page( 'ad-media-overview' ) ) {
 		wp_enqueue_script( 'ad-media-overview-app', CHILD_THEME_URI  . '/animations/js/ad-media-overview-app.js', array( 'tweenmax', 'scrollmagic', 'scrollmagic-animation', 'scrollmagicdebug' ), CHILD_THEME_VERSION, true );
 	}

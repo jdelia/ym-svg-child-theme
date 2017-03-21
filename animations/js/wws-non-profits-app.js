@@ -59,7 +59,7 @@
             // nurture
             tl2.to('#nurture #growth', 2, {
                     x: 0,
-                    y: -6
+                    y: -9
 
                 }, 1)
                 .to('#nurture #buds', 2, {
